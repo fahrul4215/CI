@@ -8,6 +8,12 @@ class PegawaiModel extends CI_Model {
 		return $this->db->get('pegawai')->result();
 	}
 
+	public function insertPegawaiGrid()
+	{
+		$data = $this->input->post();
+		$this->db->insert('pegawai', $data);
+	}
+
 	public function insertPegawai()
 	{
 		$tgl=$this->input->post('tanggal');

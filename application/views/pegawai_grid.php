@@ -35,50 +35,7 @@
 			</div>
 		</nav>
 
-		<div class="container">
-			<h1>Daftar Pegawai</h1>
-			<?php echo anchor('pegawai/create', '
-				<button type="button" class="btn btn-success">Tambah</button>
-			'); ?>
-			<?php $no=1; ?>
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th class="text-center">No</th>
-						<th class="text-center">Nama</th>
-						<th class="text-center">Alamat</th>
-						<th class="text-center">Tanggal Lahir</th>
-						<!-- <th class="text-center">Foto</th> -->
-						<th class="text-center">Aksi</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ($pegawai_list as $key): ?>
-						<tr>
-							<td class="text-center"><?php echo $no ?></td>
-							<td><?php echo $key->namaPegawai ?></td>
-							<td><?php echo $key->alamatPegawai ?></td>
-							<!-- <td><img src="" alt=""></td> -->
-							<td class="text-center"><?php echo date('d-m-Y', strtotime($key->tanggalLahir)) ?></td>
-							<td class="text-center">
-								<?php echo anchor('jabatan/index/'.$key->idPegawai, '
-									<button type="button" class="btn btn-success">Liat Jabatan</button>
-								'); ?>
-								<?php echo anchor('pegawai/update/'.$key->idPegawai, '
-									<button type="button" class="btn btn-primary">Edit</button>
-								'); ?>
-								<?php echo anchor('pegawai/delete/'.$key->idPegawai, '
-									<button type="button" class="btn btn-danger" onclick="return confirm(\'Anda yakin ingin menghapus data '.$key->namaPegawai.'?\');">Hapus</button>
-								'); ?>
-							</td>
-						</tr>
-						<?php $no++ ?>
-					<?php endforeach ?>
-				</tbody>
-			</table>
-		</div>
-
-		<!-- <div id="jsGrid"></div> -->
+		<div id="pegawaiGrid"></div>
 
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>

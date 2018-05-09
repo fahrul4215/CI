@@ -72,5 +72,28 @@
 			$data['listPegawai'] = $this->PegawaiModel->getDataPegawai();
 			$this->load->view('pegawai_datatable', $data);
 		}
+
+		public function grid()
+		{
+			$this->load->view('pegawai_grid');
+		}
+
+		public function getGridDataPegawai()
+		{
+			$result = $this->PegawaiModel->getDataPegawai();
+			header("Content-Type: application/json");
+			echo json_encode($result);
+		}
+
+		public function insertGridDataPegawai()
+		{
+			$this->PegawaiModel->insertPegawaiGrid();
+		}
+
+		public function deleteGridDataPegawai()
+		{
+			$id = $this->input->post('idPegawai');
+			$this->PegawaiModel->deleteById($id);
+		}
 	}
  ?>

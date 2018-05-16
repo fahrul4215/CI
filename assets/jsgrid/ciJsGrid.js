@@ -9,7 +9,7 @@ $(function() {
         },
  
         itemTemplate: function(value) {
-            return new Date(value).toDateString();
+            return new Date(value).toDateString('d-m-y');
         },
  
         // insertTemplate: function(value) {
